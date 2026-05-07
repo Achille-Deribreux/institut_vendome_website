@@ -1,4 +1,3 @@
-import PromoBar from '../components/PromoBar'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
@@ -7,7 +6,6 @@ import TweaksPanel from '../components/TweaksPanel'
 export default function ContactPage() {
   return (
     <>
-      <PromoBar />
       <NavBar activePage="contact" />
       <main>
         <section className="page-hero">

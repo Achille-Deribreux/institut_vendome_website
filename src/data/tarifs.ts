@@ -130,19 +130,6 @@ export const CATEGORIES: TarifCategory[] = [
     ],
   },
   {
-    id: 'technispa',
-    filter: 'silhouette',
-    title: 'Amincissants',
-    titleScript: 'Technispa Guinot',
-    summary: '4 forfaits · dès 25 €',
-    items: [
-      { kind: 'row', name: "Offre d'essai", sub: 'Première séance', dur: '20 min', price: '25 €', featured: true },
-      { kind: 'row', name: '1 séance', dur: '30 min', price: '35 €' },
-      { kind: 'pkg', name: '5 séances', sub: '+ 1 séance gratuite', price: '165 €' },
-      { kind: 'pkg', name: '10 séances', sub: '+ 1 séance gratuite + 1 produit amincissant offert', price: '330 €' },
-    ],
-  },
-  {
     id: 'epilation',
     filter: 'epilation',
     title: 'Épilation',
@@ -332,7 +319,6 @@ export const TOC_ITEMS = [
   { id: 'mains-pieds', label: 'Mains & pieds' },
   { id: 'onglerie', label: 'Onglerie' },
   { id: 'maquillage', label: 'Maquillage' },
-  { id: 'technispa', label: 'Amincissement Technispa' },
   { id: 'epilation', label: 'Épilation cire / fil' },
   { id: 'teintures', label: 'Teintures cils & sourcils' },
   { id: 'photodepilation', label: 'Photodépilation' },
@@ -353,7 +339,6 @@ export const FILTERS = [
   { key: 'epilation', label: 'Épilation' },
   { key: 'spa', label: 'SPA & massages' },
   { key: 'maquillage', label: 'Maquillage' },
-  { key: 'silhouette', label: 'Silhouette' },
   { key: 'solarium', label: 'Solarium' },
   { key: 'enfants', label: 'Enfants' },
 ]

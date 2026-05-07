@@ -1,4 +1,3 @@
-import PromoBar from '../components/PromoBar'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
@@ -66,16 +65,6 @@ const SERVICES = [
     tone: 'dark',
   },
   {
-    slug: 'amincissement',
-    filter: 'silhouette',
-    label: 'Silhouette',
-    title: 'Amincissement',
-    script: 'Technispa Guinot',
-    desc: "Offre d'essai 20 min, séances 30 min, forfaits 5 et 10 séances avec gratuité et produit offert.",
-    price: 'De 25 € à 330 €',
-    tone: 'warm',
-  },
-  {
     slug: 'solarium',
     filter: 'solarium',
     label: 'Solarium',
@@ -101,7 +90,6 @@ const SERVICES = [
 export default function ServicesPage() {
   return (
     <>
-      <PromoBar />
       <NavBar activePage="services" />
       <main>
         <section className="page-hero">

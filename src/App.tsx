@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AppProvider } from './context'
-import PromoBar from './components/PromoBar'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Dock from './components/Dock'
@@ -39,7 +38,6 @@ function HomePage() {
 
   return (
     <>
-      <PromoBar />
       <NavBar activePage="home" />
       <main>
         <Hero />

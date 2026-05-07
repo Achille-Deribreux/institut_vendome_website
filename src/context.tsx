@@ -5,7 +5,6 @@ export type Palette = 'faithful' | 'luxe' | 'editorial' | 'bolder'
 
 const DICT = {
   fr: {
-    promo: "−25% en parfumerie · toute l'année · sur les marques Lancôme, Azzaro, Bentley, Leonard, Lalique, Rochas",
     nav_home: 'Accueil',
     nav_services: 'Services',
     nav_tarifs: 'Tarifs',
@@ -30,7 +29,6 @@ const DICT = {
     tweaks_bolder: 'Néon',
   },
   nl: {
-    promo: '−25% in de parfumerie · het hele jaar · merken Lancôme, Azzaro, Bentley, Leonard, Lalique, Rochas',
     nav_home: 'Onthaal',
     nav_services: 'Diensten',
     nav_tarifs: 'Tarieven',
