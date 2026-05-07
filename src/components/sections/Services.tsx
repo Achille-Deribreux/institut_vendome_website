@@ -2,14 +2,14 @@ import { useApp, Lang } from '../../context'
 
 const SERVICES: Record<Lang, { slug: string; label: string; title: string; script: string; sub: string; image: string; wide?: boolean; tall?: boolean }[]> = {
   fr: [
-    { slug: 'coiffure', label: 'Coiffure', title: 'Coiffure dame, homme', script: '& petits princes.', sub: 'Brushing · couleur · balayage', image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=80', wide: true },
+    { slug: 'coiffure', label: 'Coiffure', title: 'Coiffure dame, homme', script: '& petits princes.', sub: 'Brushing · couleur · balayage', image: '/salon.png', wide: true },
     { slug: 'soins-visage', label: 'Visage', title: 'Soins', script: 'visage Guinot', sub: 'Hydradermie · Âge Summum', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80' },
     { slug: 'spa', label: 'SPA', title: 'SPA & massages', script: 'avec champagne', sub: 'Sauna · hammam · jacuzzi', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=80', tall: true },
     { slug: 'onglerie', label: 'Onglerie', title: 'Onglerie', script: '& maquillage', sub: 'Pose · vernis · permanent', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=80' },
     { slug: 'epilation', label: 'Épilation', title: 'Cire, fil', script: '& photodépilation', sub: 'Femmes & hommes', image: 'https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1000&q=80' },
   ],
   nl: [
-    { slug: 'coiffure', label: 'Kapsalon', title: 'Kapsalon dames, heren', script: '& kleine prinsjes.', sub: 'Brushing · kleur · balayage', image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=80', wide: true },
+    { slug: 'coiffure', label: 'Kapsalon', title: 'Kapsalon dames, heren', script: '& kleine prinsjes.', sub: 'Brushing · kleur · balayage', image: '/salon.png', wide: true },
     { slug: 'soins-visage', label: 'Visage', title: 'Gezichts-', script: 'behandelingen Guinot', sub: 'Hydradermie · Âge Summum', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80' },
     { slug: 'spa', label: 'SPA', title: 'SPA & massages', script: 'met champagne', sub: 'Sauna · hammam · jacuzzi', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=80', tall: true },
     { slug: 'onglerie', label: 'Nagelstudio', title: 'Nagelstudio', script: '& make-up', sub: 'Pose · vernis · permanent', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=80' },

@@ -4,7 +4,6 @@ import { AppProvider } from './context'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Dock from './components/Dock'
-import TweaksPanel from './components/TweaksPanel'
 import Hero from './components/sections/Hero'
 import BrandStrip from './components/sections/BrandStrip'
 import USPs from './components/sections/USPs'
@@ -53,7 +52,6 @@ function HomePage() {
       </main>
       <Footer />
       <Dock />
-      <TweaksPanel />
     </>
   )
 }

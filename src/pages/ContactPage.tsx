@@ -2,7 +2,6 @@ import { useApp } from '../context'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
-import TweaksPanel from '../components/TweaksPanel'
 
 export default function ContactPage() {
   const { t } = useApp()
@@ -36,8 +35,7 @@ export default function ContactPage() {
                   <div className="info-icon">☎</div>
                   <div>
                     <div className="info-label">{t('cont_tel')}</div>
-                    <a className="info-value info-link" href="tel:+3256555529">056 55 55 29</a>
-                    <div className="info-sub">+32 56 55 55 29</div>
+                    <a className="info-value info-link" href="tel:+3256555529">+32 56 55 55 29</a>
                   </div>
                 </div>
 
@@ -130,7 +128,6 @@ export default function ContactPage() {
       </main>
       <Footer />
       <Dock />
-      <TweaksPanel />
     </>
   )
 }

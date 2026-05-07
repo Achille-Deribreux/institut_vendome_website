@@ -4,7 +4,6 @@ import { useApp } from '../context'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
-import TweaksPanel from '../components/TweaksPanel'
 import { getCategories, getTocItems, getFilters, TarifItem, TarifCategory } from '../data/tarifs'
 
 function renderItem(item: TarifItem, idx: number) {
@@ -155,7 +154,6 @@ export default function TarifsPage() {
       </main>
       <Footer />
       <Dock />
-      <TweaksPanel />
     </>
   )
 }

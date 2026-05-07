@@ -25,7 +25,7 @@ export default function Signature() {
         <div className="signature-visual reveal">
           <div
             className="atmo has-photo"
-            style={{ backgroundImage: "url('/guinot_photo.png')", backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'var(--bg-2)' }}
+            style={{ backgroundImage: "url('/guinot.jpg')", backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'var(--bg-2)' }}
           />
           <div className="badge">Guinot<small>{t('sig_badge')}</small></div>
         </div>

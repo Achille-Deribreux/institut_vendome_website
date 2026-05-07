@@ -22,6 +22,7 @@ const DICT = {
     ftr_hours_3: 'Dimanche & lundi · fermé',
     ftr_rdv: 'Rendez-vous sur appel ou Messenger',
     ftr_legal: '© 2026 Institut Vendôme · Comines',
+    ftr_made_by: 'Site réalisé par AD IT Solutions',
     ftr_tagline: 'Coiffure · Parfumerie · Institut · Onglerie · SPA · Solarium climatisé',
     ftr_intro: 'Établissement multi-services au cœur de Comines, à la frontière franco-belge. Référence Guinot en cabine.',
     ftr_svc1: 'Coiffure',
@@ -128,7 +129,7 @@ const DICT = {
     // Team
     team_eyebrow: "L'équipe",
     team_lede: "Deux femmes, un seul registre : faire que l'on se sente attendue. Toutes les deux passent vous saluer dès l'entrée.",
-    team_role1: 'Coiffure · Onglerie · SPA',
+    team_role1: 'Esthétique & Onglerie',
     team_role2: 'Gérante · Institut',
     // Services Page
     svcp_crumbs: 'Vendôme · Services',
@@ -141,10 +142,10 @@ const DICT = {
     tarif_title_pre: 'Grille ',
     tarif_title_em: 'tarifaire',
     tarif_title_post: ' 2026.',
-    tarif_lede: "L'ensemble des prestations Vendôme, prix TTC, sources : dépliant officiel BAT 2026. Filtrez par catégorie ou cherchez une prestation ci-dessous.",
+    tarif_lede: "L'ensemble des prestations Vendôme, prix TTC. Filtrez par catégorie ou cherchez une prestation ci-dessous.",
     tarif_search: 'Chercher une prestation, une zone, un soin…',
     tarif_empty: 'Aucune prestation trouvée.',
-    tarif_footnote: "Tarifs TTC en euros, applicables au 1ᵉʳ janvier 2026 — source : dépliant officiel BAT 2026 imprimé par Sobecom. Sous réserve d'erreur typographique. Pour confirmer un tarif ou demander un devis personnalisé :",
+    tarif_footnote: "Tarifs TTC en euros, applicables au 1ᵉʳ janvier 2026. Sous réserve d'erreur typographique. Pour confirmer un tarif ou demander un devis personnalisé :",
     // Contact Page
     cont_crumbs: 'Vendôme · Contact',
     cont_title_pre: 'Nous ',
@@ -173,7 +174,7 @@ const DICT = {
   },
   nl: {
     // Nav & dock
-    nav_home: 'Onthaal',
+    nav_home: 'Home',
     nav_services: 'Diensten',
     nav_tarifs: 'Tarieven',
     nav_contact: 'Contact',
@@ -189,6 +190,7 @@ const DICT = {
     ftr_hours_3: 'Zondag & maandag · gesloten',
     ftr_rdv: 'Afspraken via telefoon of Messenger',
     ftr_legal: '© 2026 Institut Vendôme · Komen',
+    ftr_made_by: 'Website gerealiseerd door AD IT Solutions',
     ftr_tagline: 'Kapsalon · Parfumerie · Instituut · Nagelstudio · SPA · Geklimatiseerde zonnebank',
     ftr_intro: 'Multi-service etablissement in het hart van Komen, aan de Frans-Belgische grens. Guinot-referentie in cabine.',
     ftr_svc1: 'Kapsalon',
@@ -295,7 +297,7 @@ const DICT = {
     // Team
     team_eyebrow: 'Het team',
     team_lede: 'Twee vrouwen, één doel: u zich welkom laten voelen. Ze komen u allebei al bij de deur begroeten.',
-    team_role1: 'Kapsalon · Nagelstudio · SPA',
+    team_role1: 'Esthetiek & Nagelstudio',
     team_role2: 'Zaakvoerster · Instituut',
     // Services Page
     svcp_crumbs: 'Vendôme · Diensten',
@@ -308,10 +310,10 @@ const DICT = {
     tarif_title_pre: 'Onze ',
     tarif_title_em: 'tarieven',
     tarif_title_post: ' 2026.',
-    tarif_lede: 'Alle diensten van Vendôme, prijs inclusief btw, bron: officiële folder BAT 2026. Filter op categorie of zoek een behandeling hieronder.',
+    tarif_lede: 'Alle diensten van Vendôme, prijs inclusief btw. Filter op categorie of zoek een behandeling hieronder.',
     tarif_search: 'Zoek een behandeling, zone, verzorging…',
     tarif_empty: 'Geen behandeling gevonden.',
-    tarif_footnote: 'Tarieven inclusief btw in euro, geldig vanaf 1 januari 2026 — bron: officiële folder BAT 2026 gedrukt door Sobecom. Onder voorbehoud van drukfouten. Om een tarief te bevestigen of een persoonlijk offerte aan te vragen:',
+    tarif_footnote: 'Tarieven inclusief btw in euro, geldig vanaf 1 januari 2026. Onder voorbehoud van drukfouten. Om een tarief te bevestigen of een persoonlijk offerte aan te vragen:',
     // Contact Page
     cont_crumbs: 'Vendôme · Contact',
     cont_title_pre: 'Ons ',

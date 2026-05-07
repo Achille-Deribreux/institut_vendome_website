@@ -2,7 +2,6 @@ import { useApp, Lang } from '../context'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
-import TweaksPanel from '../components/TweaksPanel'
 
 type Service = { slug: string; filter: string; label: string; title: string; script: string; desc: string; price: string; tone: string; wide?: boolean }
 
@@ -74,7 +73,6 @@ export default function ServicesPage() {
       </main>
       <Footer />
       <Dock />
-      <TweaksPanel />
     </>
   )
 }

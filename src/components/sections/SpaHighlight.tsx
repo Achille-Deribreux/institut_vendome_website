@@ -23,7 +23,7 @@ export default function SpaHighlight() {
             </div>
           </div>
           <div style={{ marginTop: 36 }}>
-            <a className="btn primary" href="tel:+3256555529">{t('spa_cta')}</a>
+            <a className="btn primary" href="/tarifs?filtre=spa">{t('spa_cta')}</a>
           </div>
         </div>
 

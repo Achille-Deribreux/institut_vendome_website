@@ -37,7 +37,7 @@ export default function Footer() {
             <li>Rue du Fort 24</li>
             <li>7780 Comines-Warneton · Belgique</li>
             <li><a href="tel:+3256555529">+32 56 55 55 29</a></li>
-            <li><a href="mailto:serviceclient@parfumerie-vendome.com">serviceclient@parfumerie-vendome.com</a></li>
+
             <li style={{ marginTop: 16 }}>{t('ftr_hours')}</li>
             <li>{t('ftr_hours_2')}</li>
             <li>{t('ftr_hours_3')}</li>
@@ -47,11 +47,10 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <span>{t('ftr_legal')}</span>
-        <span>
-          <a href="https://facebook.com/cominesvendome">Facebook</a>
-          {' · '}
-          <a href="https://parfumerie-vendome.com">E-shop parfumerie</a>
-        </span>
+        <span><a href="https://facebook.com/cominesvendome">Facebook</a></span>
+      </div>
+      <div style={{ textAlign: 'center', padding: '10px 0 18px', fontSize: '0.82rem', opacity: 0.65 }}>
+        <a href="https://aditsolutions.be" style={{ color: '#fff' }}>{t('ftr_made_by')}</a>
       </div>
     </footer>
   )
