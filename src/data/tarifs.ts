@@ -1,3 +1,5 @@
+import type { Lang } from '../context'
+
 export type TarifItem =
   | { kind: 'row'; name: string; sub?: string; dur?: string; price: string; featured?: boolean }
   | { kind: 'pkg'; name: string; sub?: string; price: string }
@@ -13,7 +15,7 @@ export type TarifCategory = {
   items: TarifItem[]
 }
 
-export const CATEGORIES: TarifCategory[] = [
+const CATEGORIES_FR: TarifCategory[] = [
   {
     id: 'coiffure-dame',
     filter: 'coiffure',
@@ -312,7 +314,306 @@ export const CATEGORIES: TarifCategory[] = [
   },
 ]
 
-export const TOC_ITEMS = [
+const CATEGORIES_NL: TarifCategory[] = [
+  {
+    id: 'coiffure-dame',
+    filter: 'coiffure',
+    title: 'Kapsalon',
+    titleScript: 'dames',
+    summary: '21 diensten · 5 tot 169 €',
+    desc: 'Brushing, knipbeurt, kleuring, balayage, highlights, ombré, Braziliaanse uitgroei, warmte-extensions, bruidskapsels. Behandeling en pony aan kleine prijs.',
+    items: [
+      { kind: 'row', name: 'Brushing', price: '24 €' },
+      { kind: 'row', name: 'Natuurlijk drogen', price: '19 €' },
+      { kind: 'row', name: 'Knipbeurt', price: '19 €' },
+      { kind: 'row', name: 'Kleuring', price: '33 €' },
+      { kind: 'row', name: 'Balayage', price: '42 €', featured: true },
+      { kind: 'row', name: 'Highlights', price: '45 €' },
+      { kind: 'row', name: 'Kleuring + highlights', price: '45 €' },
+      { kind: 'row', name: 'Kleurshampoo', price: '25 €' },
+      { kind: 'row', name: 'Permanent of ontkrulling', price: '35 €' },
+      { kind: 'row', name: 'Braziliaanse uitgroei', sub: 'All-in', price: '169 €', featured: true },
+      { kind: 'row', name: 'Voorbehandeling kleuring', price: '9 €' },
+      { kind: 'row', name: 'Ontkleuring wortels', price: '39 €' },
+      { kind: 'row', name: 'Volledige ontkleuring', price: '55 €' },
+      { kind: 'row', name: 'Toner', price: '22 €' },
+      { kind: 'row', name: 'Ombré hair, tie & dye', sub: 'All-in (+ wortels : +15 €)', price: '75 €' },
+      { kind: 'row', name: 'Opsteek, krullen, vlechten', price: '32 €' },
+      { kind: 'row', name: 'Bruidskapsels', price: '39 €' },
+      { kind: 'row', name: 'Pony', price: '5 €' },
+      { kind: 'row', name: 'Behandeling', price: '5 €' },
+      { kind: 'row', name: 'Warmte-extensions', sub: 'Per lok · all-in (onder schouderblad +5 €)', price: '7,50 €' },
+    ],
+  },
+  {
+    id: 'coiffure-homme',
+    filter: 'coiffure',
+    title: 'Kapsalon',
+    titleScript: 'heren',
+    summary: '4 diensten · 19 tot 25 €',
+    items: [
+      { kind: 'row', name: 'Knipbeurt', price: '24 €' },
+      { kind: 'row', name: 'Kleuring', price: '25 €' },
+      { kind: 'row', name: 'Permanent bovenhoofd', price: '25 €' },
+      { kind: 'row', name: 'Kleurshampoo', price: '19 €' },
+    ],
+  },
+  {
+    id: 'enfants',
+    filter: 'enfants',
+    title: '« Klein prinsje',
+    titleScript: '& prinsesje »',
+    summary: 'tot 10 jaar · 13 diensten',
+    desc: 'Aangepaste tarieven, kortere behandelingen, zachtere aanpak. Het duo lichaamsmassage met mama of papa is een succes op verjaardagsfeestjes.',
+    items: [
+      { kind: 'subhead', text: 'Kapsalon' },
+      { kind: 'row', name: 'Kapsalon tot 2 jaar', price: '15 €' },
+      { kind: 'row', name: 'Meisje — Knipbeurt', price: '15 €' },
+      { kind: 'row', name: 'Brushing', price: '15 €' },
+      { kind: 'row', name: 'Natuurlijk drogen', price: '9 €' },
+      { kind: 'row', name: 'Behandeling', price: '3 €' },
+      { kind: 'row', name: 'Vlechten', price: '19 €' },
+      { kind: 'row', name: 'Opsteek', price: '22 €' },
+      { kind: 'row', name: 'Jongen — Knipbeurt', price: '19 €' },
+      { kind: 'subhead', text: 'Behandelingen' },
+      { kind: 'row', name: 'Lichaamsmassage', dur: '30 min', price: '25 €' },
+      { kind: 'row', name: 'Gezichtsbehandeling', dur: '30 min', price: '25 €' },
+      { kind: 'row', name: 'Lichaamsmassage in duo met mama of papa', dur: '30 min', price: '55 €', featured: true },
+      { kind: 'row', name: 'Lichaamsmassage + gezichtsbehandeling', dur: '1h00', price: '49 €' },
+      { kind: 'row', name: 'Nagellak', price: '5 €' },
+    ],
+  },
+  {
+    id: 'mains-pieds',
+    filter: 'onglerie',
+    title: 'Schoonheidsbehandelingen',
+    titleScript: 'handen & voeten',
+    summary: '9 diensten · 7 tot 45 €',
+    items: [
+      { kind: 'row', name: 'Volledige manicure, met lak', price: '26 €' },
+      { kind: 'row', name: 'Spa-manicure', sub: 'Scrub + massage + masker', price: '35 €', featured: true },
+      { kind: 'row', name: 'Paraffine — droge handen', price: '19 €' },
+      { kind: 'row', name: 'Volledige medische pédicure, met lak', price: '33 €' },
+      { kind: 'row', name: 'Spa-pédicure', sub: 'Scrub + massage + masker', price: '45 €', featured: true },
+      { kind: 'row', name: 'Paraffine — droge voeten', price: '19 €' },
+      { kind: 'row', name: 'Likdoorn, eelt, ingegroeide nagel', sub: 'Per stuk', price: '7 €' },
+      { kind: 'row', name: 'Peel foot Guinot', price: '29 €' },
+      { kind: 'row', name: 'Semi-permanent lak + voetenverzorging', price: '27 €' },
+    ],
+  },
+  {
+    id: 'onglerie',
+    filter: 'onglerie',
+    title: 'Nagelstudio',
+    summary: '10 diensten · 0,30 tot 49 €',
+    items: [
+      { kind: 'row', name: 'Gewone lak', price: '9 €' },
+      { kind: 'row', name: 'French lak', price: '19 €' },
+      { kind: 'row', name: 'Semi-permanent lak', price: '22 €', featured: true },
+      { kind: 'row', name: 'Verwijdering + lak', price: '19 €' },
+      { kind: 'row', name: 'Nagelposa french of gekleurd', price: '45 €' },
+      { kind: 'row', name: 'Nagelposa french of gekleurd + verlenging', price: '49 €' },
+      { kind: 'row', name: 'Bijwerking', price: '39 €' },
+      { kind: 'row', name: 'Reparatie', price: '2 €' },
+      { kind: 'row', name: 'Strass decoratie', sub: 'Per stuk', price: '0,30 €' },
+      { kind: 'row', name: 'Verstevigingsgel', price: '39 €' },
+    ],
+  },
+  {
+    id: 'maquillage',
+    filter: 'maquillage',
+    title: 'Make-up',
+    summary: '3 diensten · 25 tot 29 €',
+    items: [
+      { kind: 'row', name: 'Dagelijkse make-up', price: '25 €' },
+      { kind: 'row', name: 'Avond-, thema-, chique make-up', price: '29 €' },
+      { kind: 'row', name: 'Make-up cursus', price: '29 €' },
+    ],
+  },
+  {
+    id: 'epilation',
+    filter: 'epilation',
+    title: 'Ontharing',
+    titleScript: 'wax & draad',
+    summary: '17 diensten · « vaarwel haren »',
+    desc: "Geen bikinilijn voor mannen. De pakketten benen + bikinilijn + oksels zijn voordeliger dan los boeken.",
+    items: [
+      { kind: 'row', name: 'Wenkbrauwen, lippen, kin, nek, neus, wangen, slapen', price: '9 €' },
+      { kind: 'row', name: 'Navel, vingers, tenen, nek', price: '10 €' },
+      { kind: 'row', name: 'Volledig gezicht', price: '33 €' },
+      { kind: 'row', name: 'Onderarmen, eenvoudig bikinilijn, buik, oksels, schouders', price: '17 €' },
+      { kind: 'row', name: 'Half been, borstkas', price: '25 €' },
+      { kind: 'row', name: 'Volledig arm, Braziliaans bikinilijn', price: '25 €' },
+      { kind: 'row', name: 'Integraal bikinilijn, volledige benen, rug (boven of onder)', price: '32 €' },
+      { kind: 'row', name: 'Integraal bikinilijn + billen, volledige rug', price: '37 €' },
+      { kind: 'pkg', name: 'Pakket volledige benen + integraal bikinilijn + oksels', price: '75 €' },
+      { kind: 'pkg', name: 'Pakket volledige benen + eenvoudig bikinilijn + oksels', price: '63 €' },
+      { kind: 'pkg', name: 'Pakket halve benen + integraal bikinilijn + oksels', price: '65 €' },
+      { kind: 'pkg', name: 'Pakket halve benen + eenvoudig bikinilijn + oksels', price: '54 €' },
+      { kind: 'row', name: 'Draad-ontharing — gezicht, per zone', price: '13 €' },
+    ],
+  },
+  {
+    id: 'teintures',
+    filter: 'epilation',
+    title: 'Verfbehandelingen',
+    titleScript: 'wimpers & wenkbrauwen',
+    summary: '8 diensten · 12 tot 79 €',
+    items: [
+      { kind: 'row', name: 'Wimpers, wenkbrauwen', price: '12 €' },
+      { kind: 'row', name: 'Wenkbrauwen + ontharing', price: '20 €' },
+      { kind: 'row', name: 'Wenkbrauwen + wimpers', price: '22 €' },
+      { kind: 'row', name: 'Wenkbrauwen + wimpers + ontharing', price: '25 €' },
+      { kind: 'row', name: 'Wimperextensions, Russisch volume', dur: 'pose', price: '79 €' },
+      { kind: 'row', name: 'Bijwerking extensions', dur: '1 maand', price: '35 €' },
+      { kind: 'row', name: 'Permanent mascara', price: '29 €' },
+      { kind: 'row', name: 'Wimperlift', price: '35 €' },
+    ],
+  },
+  {
+    id: 'photodepilation',
+    filter: 'epilation',
+    title: 'Photodepilatie',
+    summary: '10 tot 15 sessies · 1 per maand',
+    items: [
+      { kind: 'subhead', text: 'Vrouwen' },
+      { kind: 'row', name: 'Neus, lippen, navel, vingers, tenen, onderlip', price: '25 €' },
+      { kind: 'row', name: 'Oksels, voorhoofd, wangen, eenvoudig bikinilijn, buik, nek, onderarmen, kin', price: '35 €' },
+      { kind: 'row', name: 'Bilspleet, Braziliaans bikinilijn', price: '40 €' },
+      { kind: 'row', name: 'Volledig arm, halve benen, integraal bikinilijn', price: '59 €' },
+      { kind: 'row', name: 'Integraal bikinilijn + billen', price: '75 €' },
+      { kind: 'row', name: 'Volledige benen', price: '149 €' },
+      { kind: 'pkg', name: 'Pakket 10 sessies + 1 gratis', price: '10 + 1' },
+      { kind: 'subhead', text: 'Mannen' },
+      { kind: 'row', name: 'Neus, navel, vingers, tenen', price: '25 €' },
+      { kind: 'row', name: 'Oksels, voorhoofd, jukbeenderen, hemdboord, schouders, nek', price: '45 €' },
+      { kind: 'row', name: 'Onderarmen, borstkas', price: '59 €' },
+      { kind: 'row', name: 'Halve benen, buik, rug', price: '75 €' },
+      { kind: 'row', name: 'Volledige benen', price: '240 €' },
+      { kind: 'pkg', name: 'Pakket 10 sessies + 1 gratis', price: '10 + 1' },
+    ],
+  },
+  {
+    id: 'bronzage',
+    filter: 'solarium',
+    title: 'Zonnebank',
+    titleScript: '& zelfbruiners',
+    summary: '7 diensten · 4 tot 69 €',
+    items: [
+      { kind: 'subhead', text: 'Geklimatiseerde zonnebank' },
+      { kind: 'row', name: '10 min', dur: 'per sessie', price: '4 €' },
+      { kind: 'row', name: '20 min', dur: 'per sessie', price: '8 €' },
+      { kind: 'pkg', name: 'Pakket 20 min — 10 sessies + 2 gratis', price: '69 €' },
+      { kind: 'subhead', text: 'Zelfbruiners in cabine' },
+      { kind: 'row', name: 'Gezicht', price: '19 €' },
+      { kind: 'row', name: 'Gezicht en decolleté', price: '25 €' },
+      { kind: 'row', name: 'Armen', price: '19 €' },
+      { kind: 'row', name: 'Benen', price: '25 €' },
+    ],
+  },
+  {
+    id: 'visage',
+    filter: 'visage',
+    title: 'Gezichtsbehandelingen',
+    titleScript: 'Guinot',
+    summary: '11 protocollen · diagnose gratis',
+    desc: 'Gratis huiddiagnose vóór de eerste behandeling. Alle behandelingen kunnen als duo worden uitgevoerd.',
+    items: [
+      { kind: 'row', name: 'Hydraclean', sub: 'Dieptereiniging · verwarmende elektrode Thermoclean', dur: '40 min', price: '49 €' },
+      { kind: 'row', name: 'Evenwicht & zuiverheidsbehandeling', sub: 'Herbalanceert, vermindert onzuiverheden, matifieert', dur: '45 min', price: '55 €' },
+      { kind: 'row', name: 'Stralingsbehandeling', sub: 'Geeft uw huid een boost', dur: '45 min', price: '55 €' },
+      { kind: 'row', name: 'Hydradermie Jeunesse', sub: 'De ster · intensieve hydratatie', dur: '60 min', price: '75 €', featured: true },
+      { kind: 'row', name: 'Hydra Peeling', sub: 'Huidvernieuwende behandeling', dur: '60 min', price: '75 €' },
+      { kind: 'row', name: 'Hydradermie Lift', sub: 'Spiergymnastiek · onmiddellijke lifting', dur: '90 min', price: '83 €' },
+      { kind: 'row', name: 'Soin Âge Summum', sub: 'Anti-aging · rimpels, stevigheid, vlekken', dur: '1h15', price: '99 €', featured: true },
+      { kind: 'row', name: 'Eye Logic', sub: 'Oogcontourrbehandeling', dur: '45 min', price: '49 €' },
+      { kind: 'row', name: 'Chemische peeling', dur: '45 min', price: '49 €' },
+      { kind: 'row', name: 'Dermapen', sub: 'Mini-invasief anti-rimpels met hyaluronzuur', dur: '1h20', price: '139 €' },
+      { kind: 'pkg', name: 'Pakket Dermapen 3 + 1 gratis', sub: 'Zie cabine', price: 'op maat' },
+    ],
+  },
+  {
+    id: 'massages',
+    filter: 'spa',
+    title: 'Massages',
+    summary: '6 diensten · 30 tot 90 min',
+    desc: 'Alle massages kunnen als duo worden uitgevoerd.',
+    items: [
+      { kind: 'row', name: 'Gezicht en hoofdhuid', sub: 'Ontspanning van de gelaatstrekken, welzijn', dur: '30 min', price: '35 €' },
+      { kind: 'row', name: 'Rug', sub: 'Ontspanning van spierspanning', dur: '30 min', price: '39 €' },
+      { kind: 'row', name: 'Benen', sub: 'Ontspanning zware benen', dur: '30 min', price: '39 €' },
+      { kind: 'row', name: 'Lichaam', sub: 'Ontspanning of spiermassage · warme oliën of kaars', dur: '30 min', price: '45 €' },
+      { kind: 'row', name: 'Lichaam', dur: '60 min', price: '65 €' },
+      { kind: 'row', name: 'Lichaam', dur: '90 min', price: '79 €' },
+    ],
+  },
+  {
+    id: 'mamans',
+    filter: 'spa',
+    title: 'Aanstaande',
+    titleScript: "mama's",
+    summary: '1 dienst · 39 €',
+    items: [
+      { kind: 'row', name: 'Rug- of benenmassage', sub: 'Aangepast aan de zwangerschap', dur: '30 min', price: '39 €' },
+    ],
+  },
+  {
+    id: 'spa',
+    filter: 'spa',
+    title: 'Pakketten',
+    titleScript: 'SPA',
+    summary: '10 pakketten · sauna, hammam, jacuzzi',
+    desc: 'Inbegrepen in alle SPA-pakketten: verfrissende drank, glas champagne en tapas. Handdoek en badjas ter beschikking.',
+    items: [
+      { kind: 'subhead', text: 'Ontspanning' },
+      { kind: 'row', name: '1 persoon', dur: '1u00', price: '55 €' },
+      { kind: 'row', name: '2 personen', dur: '1u00', price: '72 €' },
+      { kind: 'row', name: '1 persoon', dur: '1u30', price: '65 €' },
+      { kind: 'row', name: '2 personen', dur: '1u30', price: '82 €' },
+      { kind: 'subhead', text: 'Relax — SPA + behandeling 30 min OF massage 30 min' },
+      { kind: 'row', name: '1 persoon', dur: '1u30', price: '115 €' },
+      { kind: 'row', name: '2 personen', dur: '1u30', price: '125 €' },
+      { kind: 'row', name: '1 persoon', dur: '2u00', price: '135 €' },
+      { kind: 'row', name: '2 personen', dur: '2u00', price: '145 €' },
+      { kind: 'subhead', text: 'Ontvluchting — SPA + massage 40 min + gezichtsbehandeling 40 min' },
+      { kind: 'row', name: '1 persoon', dur: '2u30', price: '175 €', featured: true },
+      { kind: 'row', name: '2 personen', dur: '2u30', price: '195 €', featured: true },
+    ],
+  },
+  {
+    id: 'decouverte',
+    filter: 'spa',
+    title: 'Behandeling',
+    titleScript: 'ontdekking',
+    summary: '« Voor uzelf zorgen » · 4 pakketten',
+    items: [
+      { kind: 'row', name: 'Lichaamsscrub + lichaamsmassage', dur: '60 min', price: '55 €' },
+      { kind: 'row', name: 'Lichaamsmassage + gezichtsbehandeling', dur: '60 min', price: '55 €' },
+      { kind: 'row', name: 'Lichaamsmassage + gezichtsbehandeling', dur: '90 min', price: '75 €' },
+      { kind: 'row', name: 'Scrub + massage + gezichtsbehandeling', dur: '2u00', price: '115 €', featured: true },
+    ],
+  },
+  {
+    id: 'permanent',
+    filter: 'maquillage',
+    title: 'Make-up',
+    titleScript: 'permanent',
+    summary: '5 tot 10 jaar · bijwerking inbegrepen · 9 diensten',
+    items: [
+      { kind: 'row', name: 'Wenkbrauwen — haar voor haar', price: '280 €', featured: true },
+      { kind: 'row', name: 'Wenkbrauw reconstrueren', price: '350 €' },
+      { kind: 'row', name: 'Eye-liner boven OF onder', price: '200 €' },
+      { kind: 'row', name: 'Eye-liner boven OF onder (breed)', price: '250 €' },
+      { kind: 'row', name: 'Eye-liner boven EN onder', price: '350 €' },
+      { kind: 'row', name: 'Eye-liner boven EN onder (breed)', price: '399 €' },
+      { kind: 'row', name: 'Lippen — eenvoudig contour', price: '280 €', featured: true },
+      { kind: 'row', name: 'Lippen — contour en schaduw', price: '350 €' },
+      { kind: 'row', name: 'Moedervlek', price: '25 €' },
+    ],
+  },
+]
+
+const TOC_ITEMS_FR = [
   { id: 'coiffure-dame', label: 'Coiffure dame' },
   { id: 'coiffure-homme', label: 'Coiffure homme' },
   { id: 'enfants', label: 'Petit prince & princesse' },
@@ -331,7 +632,26 @@ export const TOC_ITEMS = [
   { id: 'permanent', label: 'Maquillage permanent' },
 ]
 
-export const FILTERS = [
+const TOC_ITEMS_NL = [
+  { id: 'coiffure-dame', label: 'Kapsalon dames' },
+  { id: 'coiffure-homme', label: 'Kapsalon heren' },
+  { id: 'enfants', label: 'Klein prinsje & prinsesje' },
+  { id: 'mains-pieds', label: 'Handen & voeten' },
+  { id: 'onglerie', label: 'Nagelstudio' },
+  { id: 'maquillage', label: 'Make-up' },
+  { id: 'epilation', label: 'Ontharing wax / draad' },
+  { id: 'teintures', label: 'Wimpers & wenkbrauwen verven' },
+  { id: 'photodepilation', label: 'Photodepilatie' },
+  { id: 'bronzage', label: 'Zonnebank & zelfbruiners' },
+  { id: 'visage', label: 'Guinot gezichtsbehandelingen' },
+  { id: 'massages', label: 'Massages' },
+  { id: 'mamans', label: "Aanstaande mama's" },
+  { id: 'spa', label: 'SPA-pakketten' },
+  { id: 'decouverte', label: 'Ontdekkingsbehandeling' },
+  { id: 'permanent', label: 'Permanente make-up' },
+]
+
+const FILTERS_FR = [
   { key: 'all', label: 'Tout' },
   { key: 'coiffure', label: 'Coiffure' },
   { key: 'visage', label: 'Soins visage' },
@@ -342,3 +662,27 @@ export const FILTERS = [
   { key: 'solarium', label: 'Solarium' },
   { key: 'enfants', label: 'Enfants' },
 ]
+
+const FILTERS_NL = [
+  { key: 'all', label: 'Alles' },
+  { key: 'coiffure', label: 'Kapsalon' },
+  { key: 'visage', label: 'Gezichtsbehandelingen' },
+  { key: 'onglerie', label: 'Nagelstudio' },
+  { key: 'epilation', label: 'Ontharing' },
+  { key: 'spa', label: 'SPA & massages' },
+  { key: 'maquillage', label: 'Make-up' },
+  { key: 'solarium', label: 'Zonnebank' },
+  { key: 'enfants', label: 'Kinderen' },
+]
+
+export function getCategories(lang: Lang): TarifCategory[] {
+  return lang === 'nl' ? CATEGORIES_NL : CATEGORIES_FR
+}
+
+export function getTocItems(lang: Lang) {
+  return lang === 'nl' ? TOC_ITEMS_NL : TOC_ITEMS_FR
+}
+
+export function getFilters(lang: Lang) {
+  return lang === 'nl' ? FILTERS_NL : FILTERS_FR
+}

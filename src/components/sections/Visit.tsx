@@ -1,20 +1,20 @@
+import { useApp } from '../../context'
+
 export default function Visit() {
+  const { t } = useApp()
   return (
     <section className="visit" id="visit">
       <div className="visit-inner">
         <div className="reveal">
-          <div className="eyebrow">Nous trouver</div>
-          <h2 className="section-title">À la <em>frontière,</em><br />au milieu de la Lys.</h2>
-          <p className="lede">
-            Rue du Fort 24 · 7780 Comines-Warneton · Belgique. Au cœur de la commune, à 20 minutes de Lille
-            et accessible depuis tout l&apos;Eurométropole. Entrée plain-pied, fauteuil roulant.
-          </p>
+          <div className="eyebrow">{t('vis_eyebrow')}</div>
+          <h2 className="section-title">{t('vis_title_pre')}<em>{t('vis_title_em')}</em><br />{t('vis_title_post')}</h2>
+          <p className="lede">{t('vis_lede')}</p>
           <ul className="visit-info">
-            <li><span className="k">Téléphone</span><span className="v"><strong>+32 56 55 55 29</strong></span></li>
-            <li className="hrs"><span className="k">Mar — Ven</span><span className="v"><strong>08h30 → 19h00</strong></span></li>
-            <li className="hrs"><span className="k">Samedi</span><span className="v"><strong>08h30 → 18h00</strong></span></li>
-            <li><span className="k">Dim &amp; Lun</span><span className="v">Fermé</span></li>
-            <li><span className="k">Paiements</span><span className="v">Cartes · sans contact NFC · espèces</span></li>
+            <li><span className="k">{t('vis_tel')}</span><span className="v"><strong>+32 56 55 55 29</strong></span></li>
+            <li className="hrs"><span className="k">{t('vis_marven')}</span><span className="v"><strong>08h30 → 19h00</strong></span></li>
+            <li className="hrs"><span className="k">{t('vis_sat')}</span><span className="v"><strong>08h30 → 18h00</strong></span></li>
+            <li><span className="k">{t('vis_dimlon')}</span><span className="v">{t('vis_closed')}</span></li>
+            <li><span className="k">{t('vis_payments')}</span><span className="v">{t('vis_payments_val')}</span></li>
           </ul>
         </div>
         <div className="map reveal">

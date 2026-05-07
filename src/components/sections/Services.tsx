@@ -1,82 +1,42 @@
-const SERVICES = [
-  {
-    slug: 'coiffure',
-    label: 'Coiffure',
-    title: 'Coiffure dame, homme',
-    script: '& petits princes.',
-    sub: 'Brushing · couleur · balayage',
-    image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=80',
-    wide: true,
-  },
-  {
-    slug: 'soins-visage',
-    label: 'Visage',
-    title: 'Soins',
-    script: 'visage Guinot',
-    sub: 'Hydradermie · Âge Summum',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80',
-  },
-  {
-    slug: 'spa',
-    label: 'SPA',
-    title: 'SPA & massages',
-    script: 'avec champagne',
-    sub: 'Sauna · hammam · jacuzzi',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=80',
-    tall: true,
-  },
-  {
-    slug: 'onglerie',
-    label: 'Onglerie',
-    title: 'Onglerie',
-    script: '& maquillage',
-    sub: 'Pose · vernis · permanent',
-    image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=80',
-  },
-  {
-    slug: 'epilation',
-    label: 'Épilation',
-    title: 'Cire, fil',
-    script: '& photodépilation',
-    sub: 'Femmes & hommes',
-    image: 'https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1000&q=80',
-  },
-  {
-    slug: 'amincissement',
-    label: 'Silhouette',
-    title: 'Amincissement',
-    script: 'Technispa Guinot',
-    sub: 'Forfaits 5 et 10 séances',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1400&q=80',
-    wide: true,
-  },
-]
+import { useApp, Lang } from '../../context'
+
+const SERVICES: Record<Lang, { slug: string; label: string; title: string; script: string; sub: string; image: string; wide?: boolean; tall?: boolean }[]> = {
+  fr: [
+    { slug: 'coiffure', label: 'Coiffure', title: 'Coiffure dame, homme', script: '& petits princes.', sub: 'Brushing · couleur · balayage', image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=80', wide: true },
+    { slug: 'soins-visage', label: 'Visage', title: 'Soins', script: 'visage Guinot', sub: 'Hydradermie · Âge Summum', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80' },
+    { slug: 'spa', label: 'SPA', title: 'SPA & massages', script: 'avec champagne', sub: 'Sauna · hammam · jacuzzi', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=80', tall: true },
+    { slug: 'onglerie', label: 'Onglerie', title: 'Onglerie', script: '& maquillage', sub: 'Pose · vernis · permanent', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=80' },
+    { slug: 'epilation', label: 'Épilation', title: 'Cire, fil', script: '& photodépilation', sub: 'Femmes & hommes', image: 'https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1000&q=80' },
+  ],
+  nl: [
+    { slug: 'coiffure', label: 'Kapsalon', title: 'Kapsalon dames, heren', script: '& kleine prinsjes.', sub: 'Brushing · kleur · balayage', image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1400&q=80', wide: true },
+    { slug: 'soins-visage', label: 'Visage', title: 'Gezichts-', script: 'behandelingen Guinot', sub: 'Hydradermie · Âge Summum', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=80' },
+    { slug: 'spa', label: 'SPA', title: 'SPA & massages', script: 'met champagne', sub: 'Sauna · hammam · jacuzzi', image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=80', tall: true },
+    { slug: 'onglerie', label: 'Nagelstudio', title: 'Nagelstudio', script: '& make-up', sub: 'Pose · vernis · permanent', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=80' },
+    { slug: 'epilation', label: 'Ontharing', title: 'Wax, draad', script: '& photodepilatie', sub: 'Vrouwen & mannen', image: 'https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=1000&q=80' },
+  ],
+}
 
 export default function Services() {
+  const { t, lang } = useApp()
+  const services = SERVICES[lang]
   return (
     <section className="services-section" id="services">
       <div className="services-head reveal">
         <div>
-          <div className="eyebrow">Nos univers</div>
-          <h2 className="section-title">Six <em>chemins</em><br />vers le bien-être.</h2>
+          <div className="eyebrow">{t('svc_eyebrow')}</div>
+          <h2 className="section-title">{t('svc_title_pre')}<em>{t('svc_title_em')}</em><br />{t('svc_title_post')}</h2>
         </div>
-        <p className="lede">
-          Chaque univers a sa propre cabine, son propre rythme, sa propre équipe. Nous les avons
-          pensés pour qu'ils se complètent : commencez par un soin Guinot, finissez au jacuzzi
-          avec une coupe à la main.
-        </p>
+        <p className="lede">{t('svc_lede')}</p>
       </div>
       <div className="services-grid">
-        {SERVICES.map((s) => (
+        {services.map((s) => (
           <a
             key={s.slug}
             className={`service-card reveal${s.wide ? ' wide' : ''}${s.tall ? ' tall' : ''}`}
             href="/services"
           >
-            <div
-              className="atmo has-photo"
-              style={{ backgroundImage: `url('${s.image}')` }}
-            />
+            <div className="atmo has-photo" style={{ backgroundImage: `url('${s.image}')` }} />
             <div className="body">
               <span className="num">{s.label}</span>
               <div>

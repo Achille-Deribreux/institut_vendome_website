@@ -1,24 +1,27 @@
+import { useApp } from '../../context'
+
 export default function Hero() {
+  const { t } = useApp()
   return (
     <section className="hero hero-fullscreen" id="hero">
       <div className="hero-bg" style={{ backgroundImage: "url('/institut_facade.webp')" }} />
       <div className="hero-overlay" />
       <div className="hero-content">
         <h1>
-          <small>Coiffure · Institut · SPA · Onglerie · Parfumerie</small>
-          La beauté
-          <span className="script">comme une évasion.</span>
+          <small>{t('hero_tagline')}</small>
+          {t('hero_headline')}
+          <span className="script">{t('hero_script')}</span>
         </h1>
         <div className="hero-meta">
-          <a className="btn primary" href="tel:+3256555529">Prendre rendez-vous</a>
+          <a className="btn primary" href="tel:+3256555529">{t('cta_book')}</a>
           <a className="btn hero-btn-ghost" href="#services" onClick={(e) => { e.preventDefault(); document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }) }}>
-            Découvrir les services
+            {t('hero_cta_discover')}
           </a>
         </div>
         <div className="hero-stats">
-          <div><div className="n">6</div><div className="l">Univers de soin</div></div>
-          <div><div className="n">5j/7</div><div className="l">Ouvert mardi au samedi</div></div>
-          <div><div className="n">4/5</div><div className="l">Sur Google &amp; Groupon</div></div>
+          <div><div className="n">6</div><div className="l">{t('hero_stat1')}</div></div>
+          <div><div className="n">5j/7</div><div className="l">{t('hero_stat2')}</div></div>
+          <div><div className="n">4/5</div><div className="l">{t('hero_stat3')}</div></div>
         </div>
       </div>
       <div className="hero-caption">

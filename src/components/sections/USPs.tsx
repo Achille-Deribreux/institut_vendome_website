@@ -1,22 +1,25 @@
+import { useApp } from '../../context'
+
 export default function USPs() {
+  const { t } = useApp()
   return (
     <section className="usps">
       <div className="usps-head reveal">
-        <div className="eyebrow">Nos signatures</div>
-        <h2 className="section-title">Trois <em>raisons</em> de pousser la porte.</h2>
+        <div className="eyebrow">{t('usps_eyebrow')}</div>
+        <h2 className="section-title">{t('usps_title_pre')}<em>{t('usps_title_em')}</em>{t('usps_title_post')}</h2>
       </div>
       <div className="usps-grid reveal">
         <div className="usp">
-          <h3>Tout sous un même toit</h3>
-          <p>Coiffure, soins visage, onglerie, SPA, parfumerie, solarium. Un seul rendez-vous, six univers de prise en charge — c'est unique à Comines.</p>
+          <h3>{t('usp1_h')}</h3>
+          <p>{t('usp1_p')}</p>
         </div>
         <div className="usp">
-          <h3>Référence Guinot en cabine</h3>
-          <p>Hydradermie, Âge Summum, Technispa : nos soins visage premium s'appuient sur la marque pro française. Diagnostic de peau offert.</p>
+          <h3>{t('usp2_h')}</h3>
+          <p>{t('usp2_p')}</p>
         </div>
         <div className="usp">
-          <h3>SPA avec champagne &amp; tapas</h3>
-          <p>Chaque forfait sauna · hammam · jacuzzi inclut la coupe de champagne, les tapas, la boisson rafraîchissante, la serviette et le peignoir.</p>
+          <h3>{t('usp3_h')}</h3>
+          <p>{t('usp3_p')}</p>
         </div>
       </div>
     </section>

@@ -1,11 +1,23 @@
-const TREATMENTS = [
-  { name: 'Hydradermie Jeunesse', sub: 'La star — hydratation intensive', dur: '60 MIN', price: '75 €' },
-  { name: 'Hydradermie Lift', sub: 'Gymnastique des muscles · lifting immédiat', dur: '90 MIN', price: '83 €' },
-  { name: 'Soin Âge Summum', sub: 'Anti-âge longévité · rides & fermeté', dur: '75 MIN', price: '99 €' },
-  { name: 'Dermapen', sub: 'Mini-invasif acide hyaluronique', dur: '80 MIN', price: '139 €' },
-]
+import { useApp, Lang } from '../../context'
+
+const TREATMENTS: Record<Lang, { name: string; sub: string; dur: string; price: string }[]> = {
+  fr: [
+    { name: 'Hydradermie Jeunesse', sub: 'La star — hydratation intensive', dur: '60 MIN', price: '75 €' },
+    { name: 'Hydradermie Lift', sub: 'Gymnastique des muscles · lifting immédiat', dur: '90 MIN', price: '83 €' },
+    { name: 'Soin Âge Summum', sub: 'Anti-âge longévité · rides & fermeté', dur: '75 MIN', price: '99 €' },
+    { name: 'Dermapen', sub: 'Mini-invasif acide hyaluronique', dur: '80 MIN', price: '139 €' },
+  ],
+  nl: [
+    { name: 'Hydradermie Jeunesse', sub: 'De ster — intensieve hydratatie', dur: '60 MIN', price: '75 €' },
+    { name: 'Hydradermie Lift', sub: 'Spiergymnastiek · onmiddellijke lifting', dur: '90 MIN', price: '83 €' },
+    { name: 'Soin Âge Summum', sub: 'Anti-aging · rimpels & stevigheid', dur: '75 MIN', price: '99 €' },
+    { name: 'Dermapen', sub: 'Mini-invasief hyaluronzuur', dur: '80 MIN', price: '139 €' },
+  ],
+}
 
 export default function Signature() {
+  const { t, lang } = useApp()
+  const treatments = TREATMENTS[lang]
   return (
     <section className="signature">
       <div className="glow-bg" />
@@ -15,18 +27,14 @@ export default function Signature() {
             className="atmo has-photo"
             style={{ backgroundImage: "url('/guinot_photo.png')", backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundColor: 'var(--bg-2)' }}
           />
-          <div className="badge">Guinot<small>Diagnostic offert</small></div>
+          <div className="badge">Guinot<small>{t('sig_badge')}</small></div>
         </div>
         <div className="reveal">
-          <div className="eyebrow">En cabine</div>
-          <h2 className="section-title">L'expertise <em>Guinot,</em><br />geste à geste.</h2>
-          <p className="lede">
-            Marque-référence des instituts pro français, Guinot inspire toute notre cabine soin.
-            Avant chaque protocole, votre peau est analysée gratuitement pour choisir le geste
-            juste — hydratation, anti-âge, pureté, lifting manuel ou Dermapen.
-          </p>
+          <div className="eyebrow">{t('sig_eyebrow')}</div>
+          <h2 className="section-title">{t('sig_title_pre')}<em>{t('sig_title_em')}</em><br />{t('sig_title_post')}</h2>
+          <p className="lede">{t('sig_lede')}</p>
           <div className="treatments">
-            {TREATMENTS.map((tr) => (
+            {treatments.map((tr) => (
               <div key={tr.name} className="treatment">
                 <div className="i">·</div>
                 <div className="name">{tr.name}<small>{tr.sub}</small></div>
@@ -36,7 +44,7 @@ export default function Signature() {
             ))}
           </div>
           <div style={{ marginTop: 28 }}>
-            <a className="btn" href="#services">Voir tous les soins visage</a>
+            <a className="btn" href="#services">{t('sig_cta')}</a>
           </div>
         </div>
       </div>

@@ -23,13 +23,12 @@ export default function Footer() {
         <div>
           <h4>{t('ftr_services')}</h4>
           <ul>
-            <li>Coiffure</li>
-            <li>Soins visage Guinot</li>
-            <li>SPA &amp; massages</li>
-            <li>Onglerie</li>
-            <li>Épilation &amp; photodépilation</li>
-            <li>Amincissement Technispa</li>
-            <li>Solarium climatisé</li>
+            <li>{t('ftr_svc1')}</li>
+            <li>{t('ftr_svc2')}</li>
+            <li>{t('ftr_svc3')}</li>
+            <li>{t('ftr_svc4')}</li>
+            <li>{t('ftr_svc5')}</li>
+            <li>{t('ftr_svc6')}</li>
           </ul>
         </div>
         <div>

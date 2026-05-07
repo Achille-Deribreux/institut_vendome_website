@@ -1,10 +1,11 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { useApp } from '../context'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
 import TweaksPanel from '../components/TweaksPanel'
-import { CATEGORIES, TOC_ITEMS, FILTERS, TarifItem } from '../data/tarifs'
+import { getCategories, getTocItems, getFilters, TarifItem, TarifCategory } from '../data/tarifs'
 
 function renderItem(item: TarifItem, idx: number) {
   if (item.kind === 'subhead') {
@@ -34,7 +35,7 @@ function renderItem(item: TarifItem, idx: number) {
   )
 }
 
-function categoryMatchesSearch(cat: typeof CATEGORIES[0], term: string): boolean {
+function categoryMatchesSearch(cat: TarifCategory, term: string): boolean {
   if (!term) return true
   const t = term.toLowerCase()
   if (cat.title.toLowerCase().includes(t)) return true
@@ -50,6 +51,10 @@ function categoryMatchesSearch(cat: typeof CATEGORIES[0], term: string): boolean
 }
 
 export default function TarifsPage() {
+  const { t, lang } = useApp()
+  const categories = getCategories(lang)
+  const tocItems = getTocItems(lang)
+  const filters = getFilters(lang)
   const [searchParams] = useSearchParams()
   const [activeFilter, setActiveFilter] = useState(() => searchParams.get('filtre') ?? 'all')
   const [search, setSearch] = useState('')
@@ -60,12 +65,12 @@ export default function TarifsPage() {
   }, [searchParams])
 
   const visible = useMemo(() => {
-    return CATEGORIES.filter((cat) => {
+    return categories.filter((cat) => {
       const filterMatch = activeFilter === 'all' || cat.filter === activeFilter
       const searchMatch = categoryMatchesSearch(cat, search)
       return filterMatch && searchMatch
     })
-  }, [activeFilter, search])
+  }, [activeFilter, search, categories])
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -78,12 +83,9 @@ export default function TarifsPage() {
         <section className="page-hero">
           <div className="glow-bg" />
           <div className="container">
-            <div className="crumbs">Vendôme · Tarifs</div>
-            <h1>Grille <em>tarifaire</em> 2026.</h1>
-            <p className="lede">
-              L&apos;ensemble des prestations Vendôme, prix TTC, sources&nbsp;: dépliant officiel BAT 2026.
-              Filtrez par catégorie ou cherchez une prestation ci-dessous.
-            </p>
+            <div className="crumbs">{t('tarif_crumbs')}</div>
+            <h1>{t('tarif_title_pre')}<em>{t('tarif_title_em')}</em>{t('tarif_title_post')}</h1>
+            <p className="lede">{t('tarif_lede')}</p>
           </div>
         </section>
 
@@ -92,12 +94,12 @@ export default function TarifsPage() {
             <input
               type="text"
               className="search-input"
-              placeholder="Chercher une prestation, une zone, un soin…"
-              aria-label="Recherche"
+              placeholder={t('tarif_search')}
+              aria-label={t('tarif_search')}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            {FILTERS.map((f) => (
+            {filters.map((f) => (
               <button
                 key={f.key}
                 className={`chip${activeFilter === f.key ? ' active' : ''}`}
@@ -112,7 +114,7 @@ export default function TarifsPage() {
         {!search && activeFilter === 'all' && (
           <section className="toc">
             <div className="toc-grid">
-              {TOC_ITEMS.map((item) => (
+              {tocItems.map((item) => (
                 <button
                   key={item.id}
                   className="toc-item"
@@ -128,9 +130,7 @@ export default function TarifsPage() {
         <section className="tarifs-body">
           <div className="container">
             {visible.length === 0 && (
-              <p style={{ color: 'var(--ink-mute)', padding: '40px 0' }}>
-                Aucune prestation trouvée.
-              </p>
+              <p style={{ color: 'var(--ink-mute)', padding: '40px 0' }}>{t('tarif_empty')}</p>
             )}
             {visible.map((cat) => (
               <div key={cat.id} className="cat" id={cat.id} data-cat={cat.filter}>
@@ -146,7 +146,7 @@ export default function TarifsPage() {
             ))}
             {visible.length > 0 && (
               <p className="footnote">
-                Tarifs TTC en euros, applicables au 1ᵉʳ janvier 2026 — source&nbsp;: dépliant officiel BAT 2026 imprimé par Sobecom. Sous réserve d&apos;erreur typographique. Pour confirmer un tarif ou demander un devis personnalisé&nbsp;:{' '}
+                {t('tarif_footnote')}{' '}
                 <a href="tel:+3256555529" style={{ color: 'var(--accent)' }}>+32 56 55 55 29</a>.
               </p>
             )}
