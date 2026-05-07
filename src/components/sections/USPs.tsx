@@ -12,7 +12,7 @@ export default function USPs() {
         </div>
         <div className="usp">
           <h3>Référence Guinot en cabine</h3>
-          <p>Hydradermie, Âge Summum, Technispa : nos soins visage et amincissants premium s'appuient sur la marque pro française. Diagnostic de peau offert.</p>
+          <p>Hydradermie, Âge Summum, Technispa : nos soins visage premium s'appuient sur la marque pro française. Diagnostic de peau offert.</p>
         </div>
         <div className="usp">
           <h3>SPA avec champagne &amp; tapas</h3>
