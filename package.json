@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && mkdir -p out/services out/tarifs out/contact && cp out/index.html out/services/index.html && cp out/index.html out/tarifs/index.html && cp out/index.html out/contact/index.html",
     "preview": "vite preview"
   },
   "dependencies": {
