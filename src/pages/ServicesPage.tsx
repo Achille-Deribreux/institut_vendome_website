@@ -3,6 +3,17 @@ import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
 
+const IMAGES: Record<string, string> = {
+  coiffure: '/salon.png',
+  'soins-visage': 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+  spa: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
+  onglerie: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=80',
+  epilation: 'https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=800&q=80',
+  maquillage: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80',
+  solarium: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
+  enfants: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80',
+}
+
 type Service = { slug: string; filter: string; label: string; title: string; script: string; desc: string; price: string; tone: string; wide?: boolean }
 
 const SERVICES: Record<Lang, Service[]> = {
@@ -52,7 +63,7 @@ export default function ServicesPage() {
                 className={`hub-card${s.wide ? ' span-2' : ''}`}
                 href={`/tarifs?filtre=${s.filter}`}
               >
-                <div className="atmo" data-tone={s.tone || undefined} />
+                <div className="atmo has-photo" data-tone={s.tone || undefined} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${IMAGES[s.slug]}')` }} />
                 <div className="body">
                   <div>
                     <span className="num">{s.label}</span>
