@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useApp } from '../context'
+import { useSEO } from '../hooks/useSEO'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
@@ -49,8 +50,14 @@ function categoryMatchesSearch(cat: TarifCategory, term: string): boolean {
   })
 }
 
+const TARIFS_SEO = {
+  fr: { title: 'Tarifs 2026 — Grille complète des prestations | Institut Vendôme Comines', description: 'Consultez la grille tarifaire 2026 de l\'Institut Vendôme à Comines : coiffure, soins Guinot, SPA, onglerie, épilation, solarium. Prix TTC.' },
+  nl: { title: 'Tarieven 2026 — Volledig overzicht | Institut Vendôme Komen', description: 'Bekijk de tarieven 2026 van Institut Vendôme in Komen: kapsalon, Guinot behandelingen, SPA, nagelstudio, ontharing, zonnebank. Inclusief btw.' },
+}
+
 export default function TarifsPage() {
   const { t, lang } = useApp()
+  useSEO({ ...TARIFS_SEO[lang], canonical: 'https://institut-vendome.be/tarifs' })
   const categories = getCategories(lang)
   const tocItems = getTocItems(lang)
   const filters = getFilters(lang)

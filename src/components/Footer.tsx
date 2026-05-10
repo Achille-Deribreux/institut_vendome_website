@@ -47,7 +47,10 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <span>{t('ftr_legal')}</span>
-        <span><a href="https://facebook.com/cominesvendome">Facebook</a></span>
+        <span style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+          <a href="/mentions-legales" style={{ opacity: 0.7, fontSize: '0.88rem' }}>{t('ftr_mentions')}</a>
+          <a href="https://facebook.com/cominesvendome">Facebook</a>
+        </span>
       </div>
       <div style={{ textAlign: 'center', padding: '10px 0 18px', fontSize: '0.82rem', opacity: 0.65 }}>
         <a href="https://aditsolutions.be" style={{ color: '#fff' }}>{t('ftr_made_by')}</a>

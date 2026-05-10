@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AppProvider } from './context'
+import { AppProvider, useApp } from './context'
+import { useSEO } from './hooks/useSEO'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Dock from './components/Dock'
@@ -17,8 +18,17 @@ import Visit from './components/sections/Visit'
 import ServicesPage from './pages/ServicesPage'
 import TarifsPage from './pages/TarifsPage'
 import ContactPage from './pages/ContactPage'
+import MentionsLegalesPage from './pages/MentionsLegalesPage'
+
+const HOME_SEO = {
+  fr: { title: 'Institut Vendôme — Coiffure, SPA & Soins Guinot · Comines', description: 'Institut multi-services à Comines : coiffure, soins visage Guinot, SPA avec champagne, onglerie, photodépilation, parfumerie. Ouvert mar–sam. Frontière France-Belgique.' },
+  nl: { title: 'Institut Vendôme — Kapsalon, SPA & Guinot-behandelingen · Komen', description: 'Multi-service instituut in Komen: kapsalon, Guinot gezichtsbehandelingen, SPA met champagne, nagelstudio, ontharing, parfumerie. Open di–za.' },
+}
 
 function HomePage() {
+  const { lang } = useApp()
+  useSEO({ ...HOME_SEO[lang], canonical: 'https://institut-vendome.be/' })
+
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
@@ -65,6 +75,7 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/tarifs" element={<TarifsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>

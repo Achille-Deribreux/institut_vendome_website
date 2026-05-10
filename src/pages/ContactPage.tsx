@@ -1,10 +1,17 @@
 import { useApp } from '../context'
+import { useSEO } from '../hooks/useSEO'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
 
+const CONTACT_SEO = {
+  fr: { title: 'Contact & Accès — Institut Vendôme | Rue du Fort 24, Comines', description: 'Institut Vendôme — Rue du Fort 24, 7780 Comines-Warneton. Tél : +32 56 55 55 29. Ouvert du mardi au samedi. Parking gratuit.' },
+  nl: { title: 'Contact & Route — Institut Vendôme | Rue du Fort 24, Komen', description: 'Institut Vendôme — Rue du Fort 24, 7780 Komen-Waasten. Tel: +32 56 55 55 29. Open van dinsdag tot zaterdag. Gratis parking.' },
+}
+
 export default function ContactPage() {
-  const { t } = useApp()
+  const { t, lang } = useApp()
+  useSEO({ ...CONTACT_SEO[lang], canonical: 'https://institut-vendome.be/contact' })
   return (
     <>
       <NavBar activePage="contact" />
@@ -65,11 +72,11 @@ export default function ContactPage() {
                     </div>
                     <div className="hours-row">
                       <span className="hours-day">{t('cont_marven')}</span>
-                      <span className="hours-val">08h30 — 19h00</span>
+                      <span className="hours-val">09h00 — 18h30</span>
                     </div>
                     <div className="hours-row">
                       <span className="hours-day">{t('cont_sat')}</span>
-                      <span className="hours-val">08h30 — 18h00</span>
+                      <span className="hours-val">08h30 — 17h00</span>
                     </div>
                     <div className="hours-row">
                       <span className="hours-day">{t('cont_sun')}</span>

@@ -1,4 +1,5 @@
 import { useApp, Lang } from '../context'
+import { useSEO } from '../hooks/useSEO'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Dock from '../components/Dock'
@@ -39,8 +40,14 @@ const SERVICES: Record<Lang, Service[]> = {
   ],
 }
 
+const SERVICES_SEO = {
+  fr: { title: 'Services — Coiffure, Soins, SPA, Onglerie | Institut Vendôme Comines', description: 'Découvrez les 6 univers de l\'Institut Vendôme à Comines : coiffure, soins visage Guinot, SPA & massages, onglerie, épilation, solarium climatisé.' },
+  nl: { title: 'Diensten — Kapsalon, Behandelingen, SPA, Nagelstudio | Institut Vendôme Komen', description: 'Ontdek de 6 domeinen van Institut Vendôme in Komen: kapsalon, Guinot gezichtsbehandelingen, SPA & massages, nagelstudio, ontharing, zonnebank.' },
+}
+
 export default function ServicesPage() {
   const { t, lang } = useApp()
+  useSEO({ ...SERVICES_SEO[lang], canonical: 'https://institut-vendome.be/services' })
   const services = SERVICES[lang]
   return (
     <>
