@@ -55,9 +55,15 @@ const TARIFS_SEO = {
   nl: { title: 'Tarieven 2026 — Volledig overzicht | Institut Vendôme Komen', description: 'Bekijk de tarieven 2026 van Institut Vendôme in Komen: kapsalon, Guinot behandelingen, SPA, nagelstudio, ontharing, zonnebank. Inclusief btw.' },
 }
 
+const TARIFS_ALTERNATES = [
+  { hreflang: 'fr-BE', href: 'https://institut-vendome.be/fr/tarifs' },
+  { hreflang: 'nl-BE', href: 'https://institut-vendome.be/nl/tarifs' },
+  { hreflang: 'x-default', href: 'https://institut-vendome.be/fr/tarifs' },
+]
+
 export default function TarifsPage() {
   const { t, lang } = useApp()
-  useSEO({ ...TARIFS_SEO[lang], canonical: 'https://institut-vendome.be/tarifs' })
+  useSEO({ ...TARIFS_SEO[lang], canonical: `https://institut-vendome.be/${lang}/tarifs`, alternates: TARIFS_ALTERNATES })
   const categories = getCategories(lang)
   const tocItems = getTocItems(lang)
   const filters = getFilters(lang)

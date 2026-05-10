@@ -1,33 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
-    <loc>https://institut-vendome.be/</loc>
-    <lastmod>2026-05-10</lastmod>
+    <loc>https://institut-vendome.be/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/"/>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://institut-vendome.be/services</loc>
-    <lastmod>2026-05-10</lastmod>
+    <loc>https://institut-vendome.be/nl/</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://institut-vendome.be/fr/services</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/services"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/services"/>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://institut-vendome.be/tarifs</loc>
-    <lastmod>2026-05-10</lastmod>
+    <loc>https://institut-vendome.be/nl/services</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/services"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/services"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://institut-vendome.be/fr/tarifs</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/tarifs"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/tarifs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/tarifs"/>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://institut-vendome.be/contact</loc>
-    <lastmod>2026-05-10</lastmod>
+    <loc>https://institut-vendome.be/nl/tarifs</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/tarifs"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/tarifs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/tarifs"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://institut-vendome.be/fr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/contact"/>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://institut-vendome.be/mentions-legales</loc>
-    <lastmod>2026-05-10</lastmod>
+    <loc>https://institut-vendome.be/nl/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/contact"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://institut-vendome.be/fr/mentions-legales</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/mentions-legales"/>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://institut-vendome.be/nl/mentions-legales</loc>
+    <xhtml:link rel="alternate" hreflang="fr-BE" href="https://institut-vendome.be/fr/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://institut-vendome.be/nl/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://institut-vendome.be/fr/mentions-legales"/>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

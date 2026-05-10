@@ -45,9 +45,15 @@ const SERVICES_SEO = {
   nl: { title: 'Diensten — Kapsalon, Behandelingen, SPA, Nagelstudio | Institut Vendôme Komen', description: 'Ontdek de 6 domeinen van Institut Vendôme in Komen: kapsalon, Guinot gezichtsbehandelingen, SPA & massages, nagelstudio, ontharing, zonnebank.' },
 }
 
+const SERVICES_ALTERNATES = [
+  { hreflang: 'fr-BE', href: 'https://institut-vendome.be/fr/services' },
+  { hreflang: 'nl-BE', href: 'https://institut-vendome.be/nl/services' },
+  { hreflang: 'x-default', href: 'https://institut-vendome.be/fr/services' },
+]
+
 export default function ServicesPage() {
   const { t, lang } = useApp()
-  useSEO({ ...SERVICES_SEO[lang], canonical: 'https://institut-vendome.be/services' })
+  useSEO({ ...SERVICES_SEO[lang], canonical: `https://institut-vendome.be/${lang}/services`, alternates: SERVICES_ALTERNATES })
   const services = SERVICES[lang]
   return (
     <>
@@ -68,7 +74,7 @@ export default function ServicesPage() {
               <a
                 key={s.slug}
                 className={`hub-card${s.wide ? ' span-2' : ''}`}
-                href={`/tarifs?filtre=${s.filter}`}
+                href={`/${lang}/tarifs?filtre=${s.filter}`}
               >
                 <div className="atmo has-photo" data-tone={s.tone || undefined} style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('${IMAGES[s.slug]}')` }} />
                 <div className="body">

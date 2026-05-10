@@ -1,7 +1,7 @@
 import { useApp } from '../context'
 
 export default function Footer() {
-  const { t } = useApp()
+  const { t, lang } = useApp()
   return (
     <footer className="footer">
       <div className="footer-inner">
@@ -48,7 +48,7 @@ export default function Footer() {
       <div className="footer-bottom">
         <span>{t('ftr_legal')}</span>
         <span style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
-          <a href="/mentions-legales" style={{ opacity: 0.7, fontSize: '0.88rem' }}>{t('ftr_mentions')}</a>
+          <a href={`/${lang}/mentions-legales`} style={{ opacity: 0.7, fontSize: '0.88rem' }}>{t('ftr_mentions')}</a>
           <a href="https://facebook.com/cominesvendome">Facebook</a>
         </span>
       </div>

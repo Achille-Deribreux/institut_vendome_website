@@ -1,7 +1,7 @@
 import { useApp } from '../../context'
 
 export default function SpaHighlight() {
-  const { t } = useApp()
+  const { t, lang } = useApp()
   return (
     <section className="spa-highlight">
       <div className="spa-inner">
@@ -23,7 +23,7 @@ export default function SpaHighlight() {
             </div>
           </div>
           <div style={{ marginTop: 36 }}>
-            <a className="btn primary" href="/tarifs?filtre=spa">{t('spa_cta')}</a>
+            <a className="btn primary" href={`/${lang}/tarifs?filtre=spa`}>{t('spa_cta')}</a>
           </div>
         </div>
 

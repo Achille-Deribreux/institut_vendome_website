@@ -9,9 +9,15 @@ const CONTACT_SEO = {
   nl: { title: 'Contact & Route — Institut Vendôme | Rue du Fort 24, Komen', description: 'Institut Vendôme — Rue du Fort 24, 7780 Komen-Waasten. Tel: +32 56 55 55 29. Open van dinsdag tot zaterdag. Gratis parking.' },
 }
 
+const CONTACT_ALTERNATES = [
+  { hreflang: 'fr-BE', href: 'https://institut-vendome.be/fr/contact' },
+  { hreflang: 'nl-BE', href: 'https://institut-vendome.be/nl/contact' },
+  { hreflang: 'x-default', href: 'https://institut-vendome.be/fr/contact' },
+]
+
 export default function ContactPage() {
   const { t, lang } = useApp()
-  useSEO({ ...CONTACT_SEO[lang], canonical: 'https://institut-vendome.be/contact' })
+  useSEO({ ...CONTACT_SEO[lang], canonical: `https://institut-vendome.be/${lang}/contact`, alternates: CONTACT_ALTERNATES })
   return (
     <>
       <NavBar activePage="contact" />

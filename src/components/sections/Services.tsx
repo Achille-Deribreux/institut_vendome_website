@@ -34,7 +34,7 @@ export default function Services() {
           <a
             key={s.slug}
             className={`service-card reveal${s.wide ? ' wide' : ''}${s.tall ? ' tall' : ''}`}
-            href="/services"
+            href={`/${lang}/services`}
           >
             <div className="atmo has-photo" style={{ backgroundImage: `url('${s.image}')` }} />
             <div className="body">

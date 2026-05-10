@@ -153,9 +153,15 @@ const LEGAL_SEO = {
   nl: { title: 'Wettelijke vermeldingen & Privacy | Institut Vendôme', description: 'Wettelijke vermeldingen, privacyverklaring en cookiebeleid van Institut Vendôme in Komen — Vendome BV, KBO 0675.509.087.' },
 }
 
+const LEGAL_ALTERNATES = [
+  { hreflang: 'fr-BE', href: 'https://institut-vendome.be/fr/mentions-legales' },
+  { hreflang: 'nl-BE', href: 'https://institut-vendome.be/nl/mentions-legales' },
+  { hreflang: 'x-default', href: 'https://institut-vendome.be/fr/mentions-legales' },
+]
+
 export default function MentionsLegalesPage() {
   const { lang } = useApp()
-  useSEO({ ...LEGAL_SEO[lang], canonical: 'https://institut-vendome.be/mentions-legales' })
+  useSEO({ ...LEGAL_SEO[lang], canonical: `https://institut-vendome.be/${lang}/mentions-legales`, alternates: LEGAL_ALTERNATES })
   const c = CONTENT[lang]
 
   return (

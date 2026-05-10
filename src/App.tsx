@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AppProvider, useApp } from './context'
+import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from 'react-router-dom'
+import { AppProvider, useApp, Lang } from './context'
 import { useSEO } from './hooks/useSEO'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -25,9 +25,15 @@ const HOME_SEO = {
   nl: { title: 'Institut Vendôme — Kapsalon, SPA & Guinot-behandelingen · Komen', description: 'Multi-service instituut in Komen: kapsalon, Guinot gezichtsbehandelingen, SPA met champagne, nagelstudio, ontharing, parfumerie. Open di–za.' },
 }
 
+const HOME_ALTERNATES = [
+  { hreflang: 'fr-BE', href: 'https://institut-vendome.be/fr/' },
+  { hreflang: 'nl-BE', href: 'https://institut-vendome.be/nl/' },
+  { hreflang: 'x-default', href: 'https://institut-vendome.be/fr/' },
+]
+
 function HomePage() {
   const { lang } = useApp()
-  useSEO({ ...HOME_SEO[lang], canonical: 'https://institut-vendome.be/' })
+  useSEO({ ...HOME_SEO[lang], canonical: `https://institut-vendome.be/${lang}/`, alternates: HOME_ALTERNATES })
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -66,18 +72,42 @@ function HomePage() {
   )
 }
 
+function LangRedirect() {
+  const savedLang = (localStorage.getItem('vd_lang') as Lang) || 'fr'
+  return <Navigate to={`/${savedLang}`} replace />
+}
+
+function LangLayout() {
+  const { lang } = useParams<{ lang: string }>()
+  if (lang !== 'fr' && lang !== 'nl') {
+    return <Navigate to="/fr" replace />
+  }
+  return (
+    <AppProvider lang={lang as Lang}>
+      <Outlet />
+    </AppProvider>
+  )
+}
+
 export default function App() {
   return (
-    <AppProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/tarifs" element={<TarifsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
-        </Routes>
-      </BrowserRouter>
-    </AppProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LangRedirect />} />
+        {/* Legacy URL redirects — preserve any existing indexed links */}
+        <Route path="/services" element={<Navigate to="/fr/services" replace />} />
+        <Route path="/tarifs" element={<Navigate to="/fr/tarifs" replace />} />
+        <Route path="/contact" element={<Navigate to="/fr/contact" replace />} />
+        <Route path="/mentions-legales" element={<Navigate to="/fr/mentions-legales" replace />} />
+        <Route path="/:lang" element={<LangLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="services" element={<ServicesPage />} />
+          <Route path="tarifs" element={<TarifsPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="mentions-legales" element={<MentionsLegalesPage />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/fr" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

@@ -356,7 +356,6 @@ export type DictKey = keyof typeof DICT['fr']
 
 interface AppContextType {
   lang: Lang
-  setLang: (l: Lang) => void
   t: (key: DictKey) => string
   palette: Palette
   setPalette: (p: Palette) => void
@@ -364,18 +363,10 @@ interface AppContextType {
 
 export const AppContext = createContext<AppContextType | null>(null)
 
-export function AppProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(
-    () => (localStorage.getItem('vd_lang') as Lang) || 'fr'
-  )
+export function AppProvider({ lang, children }: { lang: Lang; children: ReactNode }) {
   const [palette, setPaletteState] = useState<Palette>(
     () => (localStorage.getItem('vd_palette') as Palette) || 'faithful'
   )
-
-  const setLang = (l: Lang) => {
-    setLangState(l)
-    localStorage.setItem('vd_lang', l)
-  }
 
   const setPalette = (p: Palette) => {
     setPaletteState(p)
@@ -393,7 +384,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [palette])
 
   return (
-    <AppContext.Provider value={{ lang, setLang, t, palette, setPalette }}>
+    <AppContext.Provider value={{ lang, t, palette, setPalette }}>
       {children}
     </AppContext.Provider>
   )
