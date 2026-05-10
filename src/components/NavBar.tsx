@@ -52,7 +52,7 @@ export default function NavBar({ activePage }: NavBarProps) {
               NL
             </button>
           </div>
-          <a className="nav-cta" href="tel:+3256555529">
+          <a className="nav-cta" href="/#booking">
             {t('cta_book')}
           </a>
         </div>

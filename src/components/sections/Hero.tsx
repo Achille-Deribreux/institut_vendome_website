@@ -13,7 +13,7 @@ export default function Hero() {
           <span className="script">{t('hero_script')}</span>
         </h1>
         <div className="hero-meta">
-          <a className="btn primary" href="tel:+3256555529">{t('cta_book')}</a>
+          <a className="btn primary" href="#booking" onClick={(e) => { e.preventDefault(); document.querySelector('#booking')?.scrollIntoView({ behavior: 'smooth' }) }}>{t('cta_book')}</a>
           <a className="btn hero-btn-ghost" href="#services" onClick={(e) => { e.preventDefault(); document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' }) }}>
             {t('hero_cta_discover')}
           </a>

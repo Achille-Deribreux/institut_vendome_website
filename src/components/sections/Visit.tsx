@@ -11,8 +11,8 @@ export default function Visit() {
           <p className="lede">{t('vis_lede')}</p>
           <ul className="visit-info">
             <li><span className="k">{t('vis_tel')}</span><span className="v"><strong>+32 56 55 55 29</strong></span></li>
-            <li className="hrs"><span className="k">{t('vis_marven')}</span><span className="v"><strong>08h30 → 19h00</strong></span></li>
-            <li className="hrs"><span className="k">{t('vis_sat')}</span><span className="v"><strong>08h30 → 18h00</strong></span></li>
+            <li className="hrs"><span className="k">{t('vis_marven')}</span><span className="v"><strong>09h00 → 18h30</strong></span></li>
+            <li className="hrs"><span className="k">{t('vis_sat')}</span><span className="v"><strong>08h30 → 17h00</strong></span></li>
             <li><span className="k">{t('vis_dimlon')}</span><span className="v">{t('vis_closed')}</span></li>
             <li><span className="k">{t('vis_payments')}</span><span className="v">{t('vis_payments_val')}</span></li>
           </ul>

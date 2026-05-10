@@ -62,6 +62,17 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                <div className="info-card">
+                  <div className="info-icon">@</div>
+                  <div>
+                    <div className="info-label">{t('cont_email_label')}</div>
+                    <a className="info-value info-link" href="mailto:magalie.doolaeghe@gmail.com">
+                      magalie.doolaeghe@gmail.com
+                    </a>
+                    <div className="info-sub">{t('cont_email_sub')}</div>
+                  </div>
+                </div>
+
                 <div className="info-card info-card--hours">
                   <div className="info-icon">◷</div>
                   <div>

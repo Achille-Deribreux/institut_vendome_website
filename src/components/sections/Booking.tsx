@@ -12,7 +12,6 @@ export default function Booking() {
         </div>
         <div className="channels reveal">
           <a className="channel" href="tel:+3256555529">
-            <div className="ico">①</div>
             <div>
               <div className="l1">{t('book_ch1_l1')}</div>
               <div className="l2">+32 56 55 55 29</div>
@@ -20,12 +19,18 @@ export default function Booking() {
             <div className="ind">{t('book_ch1_ind')}</div>
           </a>
           <a className="channel" href="https://m.me/CominesVendome">
-            <div className="ico">②</div>
             <div>
               <div className="l1">{t('book_ch2_l1')}</div>
               <div className="l2">@CominesVendome</div>
             </div>
             <div className="ind">{t('book_ch2_ind')}</div>
+          </a>
+          <a className="channel" href="mailto:magalie.doolaeghe@gmail.com">
+            <div>
+              <div className="l1">{t('book_ch3_l1')}</div>
+              <div className="l2">magalie.doolaeghe@gmail.com</div>
+            </div>
+            <div className="ind">{t('book_ch3_ind')}</div>
           </a>
         </div>
       </div>
