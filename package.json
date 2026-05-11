@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && mkdir -p out/services out/tarifs out/contact out/mentions-legales && cp out/index.html out/services/index.html && cp out/index.html out/tarifs/index.html && cp out/index.html out/contact/index.html && cp out/index.html out/mentions-legales/index.html",
+    "build": "tsc && vite build && mkdir -p out/services out/tarifs out/contact out/mentions-legales out/fr/services out/fr/tarifs out/fr/contact out/fr/mentions-legales out/nl/services out/nl/tarifs out/nl/contact out/nl/mentions-legales && cp out/index.html out/services/index.html && cp out/index.html out/tarifs/index.html && cp out/index.html out/contact/index.html && cp out/index.html out/mentions-legales/index.html && cp out/index.html out/fr/index.html && cp out/index.html out/fr/services/index.html && cp out/index.html out/fr/tarifs/index.html && cp out/index.html out/fr/contact/index.html && cp out/index.html out/fr/mentions-legales/index.html && cp out/index.html out/nl/index.html && cp out/index.html out/nl/services/index.html && cp out/index.html out/nl/tarifs/index.html && cp out/index.html out/nl/contact/index.html && cp out/index.html out/nl/mentions-legales/index.html",
     "preview": "vite preview"
   },
   "dependencies": {
