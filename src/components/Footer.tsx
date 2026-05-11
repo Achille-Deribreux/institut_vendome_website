@@ -15,9 +15,9 @@ export default function Footer() {
         <div>
           <h4>{t('ftr_explore')}</h4>
           <ul>
-            <li><a href="#services">{t('nav_services')}</a></li>
-            <li><a href="#booking">{t('nav_tarifs')}</a></li>
-            <li><a href="#visit">{t('nav_contact')}</a></li>
+            <li><a href={`/${lang}/#services`}>{t('nav_services')}</a></li>
+            <li><a href={`/${lang}/#booking`}>{t('nav_tarifs')}</a></li>
+            <li><a href={`/${lang}/#visit`}>{t('nav_contact')}</a></li>
           </ul>
         </div>
         <div>
